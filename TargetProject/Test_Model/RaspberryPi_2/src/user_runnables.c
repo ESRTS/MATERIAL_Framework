@@ -1,0 +1,107 @@
+/*
+ * user_runnables.c
+ *
+ * THIS FILE IS GENERATED! 
+ * DON'T MODIFY BY HAND!
+ */
+#include <inttypes.h>
+#include <stdbool.h>
+#include "time_funcs.h"
+#include "labels.h"
+#include "labels_conf.h"
+#include "channel.h"
+#include "channel_conf.h"
+	 
+/**
+ * Generated initialization function for runnable B
+ */
+__attribute__((weak)) void r_B_init(runnable_spec_t* spec) {
+	printf("[Runnable] Initializing %s\r\n", spec->name);
+	
+	spec->initialized = true;
+}
+
+/**
+ * Generated implementation for runnable B
+ */
+__attribute__((weak)) void r_B(runnable_spec_t* spec) {
+	
+	/**
+	 * Simulate the execution
+	 */
+	switch (spec->mode) {
+		case 0:
+			burn_cycles(1875, spec->cid); // Execute for 1875 us
+			break;
+		default:
+			return;
+	}
+}
+
+/**
+ * Generated deinitialization function for runnable B
+ */
+__attribute__((weak)) void r_B_deinit(runnable_spec_t* spec) {
+	printf("[Runnable] Deinitializing %s\r\n", spec->name);
+	
+	spec->initialized = false;
+}
+
+/**
+ * Generated initialization function for runnable Rx_A_to_RaspberryPi_2
+ * This is a communication runnable (receiver) and should not be changed!
+ */
+void r_Rx_A_to_RaspberryPi_2_init(runnable_spec_t* spec) {
+	printf("[Runnable] Initializing %s\r\n", spec->name);
+								
+	channel_t* channel = (channel_t*)malloc(sizeof(channel_t));	// Allocate memory for the new channel
+	
+	channel->msg = (void*)malloc(sizeof(A_to_RaspberryPi_2_t));	// Allocate the memory to temporarily store a message
+	
+	if (channel != NULL) {
+		spec->user_data = channel;	// Link the channel struct to the runnable struct
+
+		channel->name = "A_to_RaspberryPi_2_channel";
+		channel->server_coid = -1;
+		channel->server = NULL;
+		
+		channel_create(channel);
+
+		spec->initialized = true;
+	}
+}
+
+/**
+ * Generated implementation for runnable Rx_A_to_RaspberryPi_2
+ * This is a communication runnable (receiver) and should not be changed!
+ */
+void r_Rx_A_to_RaspberryPi_2(runnable_spec_t* spec) {
+	channel_t* channel = (channel_t*)spec->user_data;	// get the channel data
+	
+	A_to_RaspberryPi_2_t* msg = channel->msg;
+	
+	if (channel_receive(channel, (uint8_t*)msg, sizeof(A_to_RaspberryPi_2_t)) == true) {							// Receive data on the channel
+	
+		uint8_t* readPointer = (uint8_t*)msg->payload;											// Get a pointer to the payload
+	
+		for (int i = 0; i < spec->outputLabelCount; i++) {
+			memcpy(spec->outputData[i]->data, readPointer, spec->outputData[i]->size);	// Copy the received label to the right position
+			readPointer += spec->outputData[i]->size;									// Move the read pointer after the label we just wrote
+		}
+	} else {
+		printf("[Runnable] Error while receiving data. Runnable:  %s\r\n", spec->name);
+	}
+}
+
+/**
+ * Generated deinitialization function for runnable Rx_A_to_RaspberryPi_2
+ * This is a communication runnable (receiver) and should not be changed!
+ */
+void r_Rx_A_to_RaspberryPi_2_deinit(runnable_spec_t* spec) {
+	printf("[Runnable] Deinitializing %s\r\n", spec->name);
+	
+	channel_cleanup((channel_t*)spec->user_data);
+	
+	spec->initialized = false;
+}
+

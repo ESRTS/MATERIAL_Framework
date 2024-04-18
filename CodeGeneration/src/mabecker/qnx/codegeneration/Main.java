@@ -29,7 +29,7 @@ public class Main {
 		switch (selectedExperiment) {
 		case WATERS2019_PARTITIONED:
 			inputFolder = "../Examples/model_WATERS2019_Partitioned";
-			modelName = "WATERS2019";
+			modelName = "WATERS2019_Partitioned";
 			break;
 		case WATERS2019_GLOBAL:
 			inputFolder = "../Examples/model_WATERS2019_Global";
