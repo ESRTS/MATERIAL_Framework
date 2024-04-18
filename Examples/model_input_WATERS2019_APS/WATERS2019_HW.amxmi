@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am="http://app4mc.eclipse.org/amalthea/3.0.0">
+  <hwModel>
+    <definitions xsi:type="am:ProcessingUnitDefinition" xmi:id="Cortex-A72.?type=ProcessingUnitDefinition" name="Cortex-A72."/>
+    <structures xmi:id="EdgeSys?type=HwStructure" name="EdgeSys" structureType="System">
+      <structures xmi:id="RaspberryPi_1?type=HwStructure" name="RaspberryPi_1" structureType="ECU">
+        <ports xmi:id="RaspberryPi_1/eth0?type=HwPort" name="eth0" bitWidth="0" priority="0">
+          <customProperties key="IP">
+            <value xsi:type="am:StringObject" value="192.168.1.211"/>
+          </customProperties>
+        </ports>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core0?type=ProcessingUnit" name="CS_Core0" frequencyDomain="no-name?type=FrequencyDomain"/>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core1?type=ProcessingUnit" name="CS_Core1" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core2?type=ProcessingUnit" name="CS_Core2" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core3?type=ProcessingUnit" name="CS_Core3" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+      </structures>
+      <structures xmi:id="RaspberryPi_2?type=HwStructure" name="RaspberryPi_2" structureType="ECU">
+        <ports xmi:id="RaspberryPi_2/eth0?type=HwPort" name="eth0" bitWidth="0" priority="0">
+          <customProperties key="IP">
+            <value xsi:type="am:StringObject" value="192.168.1.212"/>
+          </customProperties>
+        </ports>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core4?type=ProcessingUnit" name="CS_Core4" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core5?type=ProcessingUnit" name="CS_Core5" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core6?type=ProcessingUnit" name="CS_Core6" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+        <modules xsi:type="am:ProcessingUnit" xmi:id="CS_Core7?type=ProcessingUnit" name="CS_Core7" frequencyDomain="no-name?type=FrequencyDomain" definition="Cortex-A72.?type=ProcessingUnitDefinition"/>
+      </structures>
+      <connections xmi:id="EdgeSys/Network?type=HwConnection" name="Network" port1="RaspberryPi_1/eth0?type=HwPort" port2="RaspberryPi_2/eth0?type=HwPort">
+        <dataRate value="10" unit="MBPerSecond"/>
+      </connections>
+    </structures>
+    <domains xsi:type="am:FrequencyDomain" xmi:id="no-name?type=FrequencyDomain" name="" clockGating="false">
+      <defaultValue value="1.8" unit="GHz"/>
+    </domains>
+  </hwModel>
+</am:Amalthea>

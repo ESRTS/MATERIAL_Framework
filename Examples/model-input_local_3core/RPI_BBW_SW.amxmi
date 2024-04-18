@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am="http://app4mc.eclipse.org/amalthea/3.0.0">
+  <swModel>
+    <tasks xmi:id="ABS_FL_Pt?type=Task" name="ABS_FL_Pt" stimuli="periodic_50ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_ABS_FL_Pt" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="ABS_FL_T?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pGlobalBrakeController?type=Task" name="pGlobalBrakeController" stimuli="periodic_40ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pGlobalBrakeController" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="GlobalBrakeController?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="ABS_FR_Pt?type=Task" name="ABS_FR_Pt" stimuli="periodic_50ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_ABS_FR_Pt" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="ABS_FR_T?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="ABS_RL_Pt?type=Task" name="ABS_RL_Pt" stimuli="periodic_50ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_ABS_RL_Pt" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="ABS_RL_T?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="ABS_RR_Pt?type=Task" name="ABS_RR_Pt" stimuli="periodic_50ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_ABS_RR_Pt" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="ABS_RR_T?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pBrakePedalLDM?type=Task" name="pBrakePedalLDM" stimuli="periodic_20ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pBrakePedalLDM" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="BrakePedalLDM_T?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pBrakeTorqueMap?type=Task" name="pBrakeTorqueMap" stimuli="periodic_30ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pBrakeTorqueMap" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="BrakeTorqMap?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pLDM_Brake_FL?type=Task" name="pLDM_Brake_FL" stimuli="periodic_60ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pLDM_Brake_FL" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="BrakeActuator_FL_LDM?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pLDM_Brake_FR?type=Task" name="pLDM_Brake_FR" stimuli="periodic_60ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pLDM_Brake_FR" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="BrakeActuator_FR_LDM?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pLDM_Brake_RL?type=Task" name="pLDM_Brake_RL" stimuli="periodic_60ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pLDM_Brake_RL" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="BrakeActuator_RL_LDM?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="pLDM_Brake_RR?type=Task" name="pLDM_Brake_RR" stimuli="periodic_60ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pLDM_Brake_RR" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="BrakeActuator_RR_LDM?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <runnables xmi:id="ABS_FL_T?type=Runnable" name="ABS_FL_T" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="ABS_FL_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="3375000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="Brake_FL_Sig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="ABS_FR_T?type=Runnable" name="ABS_FR_T" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="ABS_FR_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="3375000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="Brake_FR_Sig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="ABS_RL_T?type=Runnable" name="ABS_RL_T" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="ABS_RL_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="3375000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="Brake_RL_Sig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="ABS_RR_T?type=Runnable" name="ABS_RR_T" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="ABS_RR_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="3375000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="Brake_RR_Sig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="GlobalBrakeController?type=Runnable" name="GlobalBrakeController" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="TorqueSig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Switch">
+          <entries name="1">
+            <items xsi:type="am:Ticks">
+              <default xsi:type="am:DiscreteValueConstant" value="2700000"/>
+            </items>
+          </entries>
+          <entries name="2">
+            <items xsi:type="am:Ticks">
+              <default xsi:type="am:DiscreteValueConstant" value="1500000"/>
+            </items>
+          </entries>
+        </items>
+        <items xsi:type="am:LabelAccess" data="ABS_FL_Sig?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="ABS_FR_Sig?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="ABS_RL_Sig?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="ABS_RR_Sig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="BrakePedalLDM_T?type=Runnable" name="BrakePedalLDM_T" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="1350000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="BrakeSig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="BrakeTorqMap?type=Runnable" name="BrakeTorqMap" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="BrakeSig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="2025000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="TorqueSig?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="BrakeActuator_FL_LDM?type=Runnable" name="BrakeActuator_FL_LDM" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="Brake_FL_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="4050000"/>
+        </items>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="BrakeActuator_FR_LDM?type=Runnable" name="BrakeActuator_FR_LDM" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="Brake_FR_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="4050000"/>
+        </items>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="BrakeActuator_RL_LDM?type=Runnable" name="BrakeActuator_RL_LDM" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="Brake_RL_Sig?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="4050000"/>
+        </items>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="BrakeActuator_RR_LDM?type=Runnable" name="BrakeActuator_RR_LDM" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="4050000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="Brake_RR_Sig?type=Label" access="read" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <labels xmi:id="BrakeSig?type=Label" name="BrakeSig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="TorqueSig?type=Label" name="TorqueSig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="ABS_RR_Sig?type=Label" name="ABS_RR_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="ABS_RL_Sig?type=Label" name="ABS_RL_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="ABS_FR_Sig?type=Label" name="ABS_FR_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="ABS_FL_Sig?type=Label" name="ABS_FL_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="Brake_RR_Sig?type=Label" name="Brake_RR_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="Brake_RL_Sig?type=Label" name="Brake_RL_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="Brake_FL_Sig?type=Label" name="Brake_FL_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+    <labels xmi:id="Brake_FR_Sig?type=Label" name="Brake_FR_Sig" constant="false" bVolatile="false">
+      <size value="2" unit="B"/>
+    </labels>
+  </swModel>
+  <stimuliModel>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_20ms?type=PeriodicStimulus" name="periodic_20ms">
+      <recurrence value="20" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_30ms?type=PeriodicStimulus" name="periodic_30ms">
+      <recurrence value="30" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_40ms?type=PeriodicStimulus" name="periodic_40ms">
+      <recurrence value="40" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_50ms?type=PeriodicStimulus" name="periodic_50ms">
+      <recurrence value="50" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_60ms?type=PeriodicStimulus" name="periodic_60ms">
+      <recurrence value="60" unit="ms"/>
+    </stimuli>
+  </stimuliModel>
+  <constraintsModel>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_ABS_FL_Pt" severity="Critical" process="ABS_FL_Pt?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_ABS_FR_Pt" severity="Critical" process="ABS_FR_Pt?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_ABS_RL_Pt" severity="Critical" process="ABS_RL_Pt?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_ABS_RR_Pt" severity="Critical" process="ABS_RR_Pt?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pBrakePedalLDM" severity="Critical" process="pBrakePedalLDM?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pBrakeTorqueMap" severity="Critical" process="pBrakeTorqueMap?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pGlobalBrakeController" severity="Critical" process="pGlobalBrakeController?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pLDM_Brake_FL" severity="Critical" process="pLDM_Brake_FL?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pLDM_Brake_FR" severity="Critical" process="pLDM_Brake_FR?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pLDM_Brake_RL" severity="Critical" process="pLDM_Brake_RL?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pLDM_Brake_RR" severity="Critical" process="pLDM_Brake_RR?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+  </constraintsModel>
+</am:Amalthea>

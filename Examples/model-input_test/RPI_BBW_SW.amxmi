@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am="http://app4mc.eclipse.org/amalthea/3.0.0">
+  <swModel>
+    <tasks xmi:id="A?type=Task" name="A" stimuli="periodic_40ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_ABS_FL_Pt" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="A?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="B?type=Task" name="B" stimuli="periodic_20ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
+      <activityGraph>
+        <items xsi:type="am:Group" name="CS_pGlobalBrakeController" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="B?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <runnables xmi:id="A?type=Runnable" name="A" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="3375000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="tmpLabel?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="tmpLabel2?type=Label" access="write"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="B?type=Runnable" name="B" callback="false" service="false" asilLevel="D">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="tmpLabel2?type=Label" access="read"/>
+        <items xsi:type="am:LabelAccess" data="tmpLabel?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="3375000"/>
+        </items>
+      </activityGraph>
+    </runnables>
+    <labels xmi:id="tmpLabel?type=Label" name="tmpLabel" constant="false" bVolatile="false">
+      <size value="500" unit="kB"/>
+    </labels>
+    <labels xmi:id="tmpLabel2?type=Label" name="tmpLabel2" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+  </swModel>
+  <stimuliModel>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_20ms?type=PeriodicStimulus" name="periodic_20ms">
+      <recurrence value="20" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_30ms?type=PeriodicStimulus" name="periodic_30ms">
+      <recurrence value="30" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_40ms?type=PeriodicStimulus" name="periodic_40ms">
+      <recurrence value="40" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_50ms?type=PeriodicStimulus" name="periodic_50ms">
+      <recurrence value="50" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_60ms?type=PeriodicStimulus" name="periodic_60ms">
+      <recurrence value="60" unit="ms"/>
+    </stimuli>
+  </stimuliModel>
+  <constraintsModel>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_ABS_FL_Pt" severity="Critical" process="A?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_pGlobalBrakeController" severity="Critical" process="B?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+  </constraintsModel>
+</am:Amalthea>

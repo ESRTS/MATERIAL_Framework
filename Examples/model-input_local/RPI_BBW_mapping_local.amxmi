@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am="http://app4mc.eclipse.org/amalthea/3.0.0">
+  <mappingModel>
+    <schedulerAllocation>
+      <scheduler xsi:type="am:TaskScheduler" href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <responsibility href="amlt:/#CS_Core0?type=ProcessingUnit"/>
+      <responsibility href="amlt:/#CS_Core1?type=ProcessingUnit"/>
+      <responsibility href="amlt:/#CS_Core2?type=ProcessingUnit"/>
+      <responsibility href="amlt:/#CS_Core3?type=ProcessingUnit"/>
+      <executingPU href="amlt:/#CS_Core0?type=ProcessingUnit"/>
+    </schedulerAllocation>
+    <schedulerAllocation>
+      <scheduler xsi:type="am:TaskScheduler" href="amlt:/#N2_FPPS?type=TaskScheduler"/>
+      <responsibility href="amlt:/#CS_Core4?type=ProcessingUnit"/>
+      <responsibility href="amlt:/#CS_Core5?type=ProcessingUnit"/>
+      <responsibility href="amlt:/#CS_Core6?type=ProcessingUnit"/>
+      <responsibility href="amlt:/#CS_Core7?type=ProcessingUnit"/>
+      <executingPU href="amlt:/#CS_Core4?type=ProcessingUnit"/>
+    </schedulerAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="250"/>
+      </schedulingParameters>
+      <task href="amlt:/#pBrakePedalLDM?type=Task"/>
+      <scheduler href="amlt:/#N1_P0?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core1?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="249"/>
+      </schedulingParameters>
+      <task href="amlt:/#pBrakeTorqueMap?type=Task"/>
+      <scheduler href="amlt:/#N1_P0?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core1?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="248"/>
+      </schedulingParameters>
+      <task href="amlt:/#pGlobalBrakeController?type=Task"/>
+      <scheduler href="amlt:/#N1_P0?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core1?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="247"/>
+      </schedulingParameters>
+      <task href="amlt:/#ABS_FL_Pt?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core0?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="243"/>
+      </schedulingParameters>
+      <task href="amlt:/#pLDM_Brake_FL?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core0?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="246"/>
+      </schedulingParameters>
+      <task href="amlt:/#ABS_FR_Pt?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core1?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="242"/>
+      </schedulingParameters>
+      <task href="amlt:/#pLDM_Brake_FR?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core1?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="245"/>
+      </schedulingParameters>
+      <task href="amlt:/#ABS_RL_Pt?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core2?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="241"/>
+      </schedulingParameters>
+      <task href="amlt:/#pLDM_Brake_RL?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core2?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="244"/>
+      </schedulingParameters>
+      <task href="amlt:/#ABS_RR_Pt?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core3?type=ProcessingUnit"/>
+    </taskAllocation>
+    <taskAllocation>
+      <schedulingParameters>
+        <key href="amlt:/#priority?type=SchedulingParameterDefinition"/>
+        <value xsi:type="am:IntegerObject" value="240"/>
+      </schedulingParameters>
+      <task href="amlt:/#pLDM_Brake_RR?type=Task"/>
+      <scheduler href="amlt:/#N1_FPPS?type=TaskScheduler"/>
+      <affinity href="amlt:/#CS_Core3?type=ProcessingUnit"/>
+    </taskAllocation>
+  </mappingModel>
+</am:Amalthea>

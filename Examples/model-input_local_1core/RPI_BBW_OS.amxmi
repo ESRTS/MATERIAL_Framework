@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am="http://app4mc.eclipse.org/amalthea/3.0.0">
+  <osModel>
+    <operatingSystems xsi:type="am:VendorOperatingSystem" name="QNX_Node1" osName="QNX" vendor="Blackberry" version="7.1">
+      <taskSchedulers xmi:id="N1_FPPS?type=TaskScheduler" name="N1_FPPS" definition="FixedPriorityPreemptive?type=SchedulerDefinition">
+        <customProperties key="APS_WindowSize">
+          <value xsi:type="am:IntegerObject" value="100"/>
+        </customProperties>
+      </taskSchedulers>
+      <taskSchedulers xmi:id="N1_P0?type=TaskScheduler" name="N1_P0" definition="APSPartition?type=SchedulerDefinition">
+        <customProperties key="Budget">
+          <value xsi:type="am:IntegerObject" value="250"/>
+        </customProperties>
+        <customProperties key="BudgetPercentScale">
+          <value xsi:type="am:IntegerObject" value="1"/>
+        </customProperties>
+        <parentAssociation parent="N1_FPPS?type=TaskScheduler"/>
+      </taskSchedulers>
+    </operatingSystems>
+    <operatingSystems xsi:type="am:VendorOperatingSystem" name="QNX_Node2" osName="QNX" vendor="Blackberry" version="7.1">
+      <taskSchedulers xmi:id="N2_FPPS?type=TaskScheduler" name="N2_FPPS" definition="FixedPriorityPreemptive?type=SchedulerDefinition">
+        <customProperties key="APS_WindowSize">
+          <value xsi:type="am:IntegerObject" value="100"/>
+        </customProperties>
+      </taskSchedulers>
+    </operatingSystems>
+    <schedulerDefinitions xmi:id="FixedPriorityPreemptive?type=SchedulerDefinition" name="FixedPriorityPreemptive" description="Fixed Priority Preemptive Scheduling (e.g. AUTOSAR),&#xA;same as OSEK but without task groups.&#xA;&#xA;Algorithm parameters:&#xA; -&#xA;&#xA;Process parameters:&#xA; - priority [1] Integer&#xA;      The priority of the process (a higher value means a higher priority).&#xA;&#xA;Options:&#xA; -&#xA;&#xA;Reference:&#xA; - Liu, Chung Laung, and James W. Layland (1973).&#xA;   &quot;Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment&quot;&#xA;   Journal of the ACM (JACM) 20.1 (1973): 46-61.&#xA;" processParameters="priority?type=SchedulingParameterDefinition" requiresParentScheduler="false" passesParametersUpwards="false" hasExactlyOneChild="false"/>
+    <schedulerDefinitions xmi:id="APSPartition?type=SchedulerDefinition" name="APSPartition" requiresParentScheduler="false" passesParametersUpwards="false" hasExactlyOneChild="false"/>
+    <schedulingParameterDefinitions xmi:id="priority?type=SchedulingParameterDefinition" name="priority" type="Integer" many="false" mandatory="true"/>
+  </osModel>
+</am:Amalthea>

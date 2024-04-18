@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:am="http://app4mc.eclipse.org/amalthea/3.0.0">
+  <swModel>
+    <tasks xmi:id="Lidar?type=Task" name="Lidar" stimuli="periodic_33ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="Lidar_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="CAN?type=Task" name="CAN" stimuli="periodic_10ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="CAN_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="EKF?type=Task" name="EKF" stimuli="periodic_15ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="EKF_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="Planner?type=Task" name="Planner" stimuli="periodic_15ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="Planner_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="Control?type=Task" name="Control" stimuli="periodic_5ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="Control_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="Detection?type=Task" name="Detection" stimuli="periodic_200ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="Detection_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="SFM?type=Task" name="SFM" stimuli="periodic_33ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="SFM_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="Localization?type=Task" name="Localization" stimuli="periodic_400ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="Localization_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <tasks xmi:id="Lane_Detection?type=Task" name="Lane_Detection" stimuli="periodic_66ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="0">
+      <activityGraph>
+        <items xsi:type="am:Group" name="" ordered="true" interruptible="true">
+          <items xsi:type="am:RunnableCall" runnable="Lane_Detection_Func?type=Runnable"/>
+        </items>
+      </activityGraph>
+    </tasks>
+    <runnables xmi:id="Lidar_Func?type=Runnable" name="Lidar_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="cloud_map?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="21173000"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="cloud_map?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="occupancy_grid?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="CAN_Func?type=Runnable" name="CAN_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="929504"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="vehicle_status?type=Label" access="write"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="EKF_Func?type=Runnable" name="EKF_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="vehicle_status?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="x_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="y_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="yaw_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="7377488"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="x_car?type=Label" access="write"/>
+        <items xsi:type="am:LabelAccess" data="y_car?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="yaw_car?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="vel_car?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="yaw_rate?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="Planner_Func?type=Runnable" name="Planner_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="lane_boundary?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="occupancy_grid?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="matrix_sfm?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="boundary_box?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="x_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="y_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="yaw_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="vel_car?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="yaw_rate?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="20524962"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="speed_objective?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="steer_objective?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="Control_Func?type=Runnable" name="Control_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="steer_objective?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="steer_objective?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="2882992"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="speed_objective?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="steer_objective?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="Detection_Func?type=Runnable" name="Detection_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="image_lane?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="142149818"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="boundary_box?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="SFM_Func?type=Runnable" name="SFM_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="image_sfm?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="57976750"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="matrix_sfm?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="Localization_Func?type=Runnable" name="Localization_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="cloud_map?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="vehicle_status?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="627841497"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="x_car?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="y_car?type=Label" access="write" implementation="implicit"/>
+        <items xsi:type="am:LabelAccess" data="yaw_car?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <runnables xmi:id="Lane_Detection_Func?type=Runnable" name="Lane_Detection_Func" callback="false" service="false">
+      <activityGraph>
+        <items xsi:type="am:LabelAccess" data="image_lane?type=Label" access="read" implementation="implicit"/>
+        <items xsi:type="am:Ticks">
+          <default xsi:type="am:DiscreteValueConstant" value="91879908"/>
+        </items>
+        <items xsi:type="am:LabelAccess" data="lane_boundary?type=Label" access="write" implementation="implicit"/>
+      </activityGraph>
+    </runnables>
+    <labels xmi:id="cloud_map?type=Label" name="cloud_map" constant="false" bVolatile="false">
+      <size value="1500" unit="kB"/>
+    </labels>
+    <labels xmi:id="occupancy_grid?type=Label" name="occupancy_grid" constant="false" bVolatile="false">
+      <size value="500" unit="kB"/>
+    </labels>
+    <labels xmi:id="vehicle_status?type=Label" name="vehicle_status" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="x_car?type=Label" name="x_car" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="y_car?type=Label" name="y_car" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="yaw_car?type=Label" name="yaw_car" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="vel_car?type=Label" name="vel_car" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="yaw_rate?type=Label" name="yaw_rate" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="steer_objective?type=Label" name="steer_objective" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="speed_objective?type=Label" name="speed_objective" constant="false" bVolatile="false">
+      <size value="1" unit="kB"/>
+    </labels>
+    <labels xmi:id="image?type=Label" name="image" constant="false" bVolatile="false">
+      <size value="2" unit="MB"/>
+    </labels>
+    <labels xmi:id="matrix_sfm?type=Label" name="matrix_sfm" constant="false" bVolatile="false">
+      <size value="24" unit="kB"/>
+    </labels>
+    <labels xmi:id="boundary_box?type=Label" name="boundary_box" constant="false" bVolatile="false">
+      <size value="750" unit="kB"/>
+    </labels>
+    <labels xmi:id="lane_boundary?type=Label" name="lane_boundary" constant="false" bVolatile="false">
+      <size value="256" unit="B"/>
+    </labels>
+    <labels xmi:id="image_lane?type=Label" name="image_lane" constant="false" bVolatile="false">
+      <size value="2" unit="MB"/>
+    </labels>
+    <labels xmi:id="image_sfm?type=Label" name="image_sfm" constant="false" bVolatile="false">
+      <size value="2" unit="MB"/>
+    </labels>
+  </swModel>
+  <stimuliModel>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_5ms?type=PeriodicStimulus" name="periodic_5ms">
+      <recurrence value="5" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_10ms?type=PeriodicStimulus" name="periodic_10ms">
+      <recurrence value="10" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_15ms?type=PeriodicStimulus" name="periodic_15ms">
+      <recurrence value="15" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_33ms?type=PeriodicStimulus" name="periodic_33ms">
+      <recurrence value="33" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_66ms?type=PeriodicStimulus" name="periodic_66ms">
+      <recurrence value="66" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_200ms?type=PeriodicStimulus" name="periodic_200ms">
+      <recurrence value="200" unit="ms"/>
+    </stimuli>
+    <stimuli xsi:type="am:PeriodicStimulus" xmi:id="periodic_400ms?type=PeriodicStimulus" name="periodic_400ms">
+      <recurrence value="400" unit="ms"/>
+    </stimuli>
+  </stimuliModel>
+  <constraintsModel>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_CAN" severity="Critical" process="CAN?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="10" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_Lidar" severity="Critical" process="Lidar?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="33" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_Localization" severity="Critical" process="Localization?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="400" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_Detection" severity="Critical" process="Detection?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="200" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_EKF" severity="Critical" process="EKF?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="15" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_SFM" severity="Critical" process="SFM?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="33" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_Planner" severity="Critical" process="Planner?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="15" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_Lane_Detection" severity="Critical" process="Lane_Detection?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="66" unit="ms"/>
+      </limit>
+    </requirements>
+    <requirements xsi:type="am:ProcessRequirement" name="Deadline_Control" severity="Critical" process="Control?type=Task">
+      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
+        <limitValue value="5" unit="ms"/>
+      </limit>
+    </requirements>
+  </constraintsModel>
+</am:Amalthea>
