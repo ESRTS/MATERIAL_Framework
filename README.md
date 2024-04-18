@@ -6,8 +6,8 @@ The project contains two parts.
 2) The base application that contains the code for the target platform that is static.
 
 ## Requirements
-1) QNX Software Development Platform 7.1
-2) APP4MC Tool Platform 3.0.0
+1) [QNX Software Development Platform 7.1](https://blackberry.qnx.com/en/products/foundation-software/qnx-software-development-platform/sdp-7-1)
+2) [APP4MC Tool Platform 3.0.0](https://eclipse.dev/app4mc/)
 
 ## Code Generation from Amalthea Models
 The code generation platform builds on the APP4MC Tool Platform. The project is imported into the APP4MC tool and can then be used to parse compliant models and generate the code. 
