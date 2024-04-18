@@ -1,12 +1,26 @@
-# MATERIAL_Framework
+# MATERIAL Framework
 A Framework for modeling and automated code generation of edge real-time applications.
 
 The project contains two parts. 
 1) The App4MC project that implements code Generation for a specific Amalthea model.
 2) The base application that contains the code for the target platform that is static.
- 
-## Code Generation from Amalthea Models
 
+## Requirements
+1) QNX Software Development Platform 7.1
+2) APP4MC Tool Platform 3.0.0
+
+## Code Generation from Amalthea Models
+The code generation platform builds on the APP4MC Tool Platform. The project is imported into the APP4MC tool and can then be used to parse compliant models and generate the code. 
+In the current implementation the model folder as well as different flags (described below) are set.
+
+### Flags:
+
+`COMPILE`: If set, the framework automatically compiles the application for each target node. 
+
+`TRANSFER`: If set, the framework automatically tarnsfers the application binary to each target node. 
+
+In order for the automatic transfer to work the target nodes must be reachable over the network.
+In addition we assume that user `qnxuser` and `root` with their default passwords are created on the target nodes. 
 
 ## Base Application 
 This project contains the QNX application that is the base of each target node. 
