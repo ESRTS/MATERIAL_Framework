@@ -1,1 +1,4 @@
 *.DS_Store
+CodeGeneration/xtend-gen
+CodeGeneration/TargetProject
+TargetProject
