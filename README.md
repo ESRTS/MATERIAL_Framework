@@ -39,6 +39,9 @@ domain. Journal of Systems and Software, 2021](https://doi.org/10.1016/j.jss.202
 2) A autonomous driving application ([WATERS 2019 industrial challenge](https://archives.ecrts.org/fileadmin/WebsitesArchiv/ecrts2019/waters/waters-industrial-challenge/index.html))
 
 In all examples the hardware platform consist of two Raspberry Pi 4B nodes connected by an Ethernet network. 
+
+The folder `TargetProject` contains the result of the code generation for all example projects. 
+
 ### Brief description of the different examples
 
 1) `model_BBW_distributed`: The BBW application distributed on two nodes. Tasks are statically assigned to cores.
