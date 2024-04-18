@@ -28,3 +28,26 @@ Note that the code relies on generated files that are not present in the reposit
 
 To automatically compile the application for the target platform the base path must be set in `compile.sh`.
 The script assumes that both, the QNX Software Development Platform and the Momentics workspace are both found at this path. 
+
+## Examples
+
+This folder contains a number of example models to illustrate different possible configurations. 
+The models are based on three applications. 
+
+1) A Break-by-Wire case study ([Bucaioni, Becker. Enabling automated integration of architectural languages: An experience report from the automotive
+domain. Journal of Systems and Software, 2021](https://doi.org/10.1016/j.jss.2021.111106))
+2) A autonomous driving application ([WATERS 2019 industrial challenge](https://archives.ecrts.org/fileadmin/WebsitesArchiv/ecrts2019/waters/waters-industrial-challenge/index.html))
+
+In all examples the hardware platform consist of two Raspberry Pi 4B nodes connected by an Ethernet network. 
+### Brief description of the different examples
+
+1) `model_BBW_distributed`: The BBW application distributed on two nodes. Tasks are statically assigned to cores.
+2) `model_BBW_local`: The BBW application where all tasks are allocated to the same node. Tasks are statically assigned to cores.
+3) `model_BBW_local_Global1core`: The BBW application where all tasks are allocated to the same node. Tasks are statically assigned to one core.
+4) `model_BBW_local_Global2core`: The BBW application where all tasks are allocated to the same node. Tasks are globally scheduled on two cores. 
+5) `model_BBW_local_Global3core`: The BBW application where all tasks are allocated to the same node. Tasks are globally scheduled on three cores. 
+6) `model_BBW_local_Global4core`: The BBW application where all tasks are allocated to the same node. Tasks are globally scheduled on four cores. 
+7) `model_WATERS2019_Partitioned`: The WATERS 2019 application where tasks are distributed on two nodes. Each task is statically allocated to a core. 
+8) `model_WATERS2019_Global`: The WATERS 2019 application where tasks are distributed on two nodes. Tasks on each node are globally scheduled on all four cores.
+9) `model_WATERS2019_APS`: Same as `model_WATERS2019_Partitioned` but node 2 utilizes APS reservations for the application tasks.
+10) `model_test`: A test application consisting of two communicating tasks that are allocated to two nodes. 
